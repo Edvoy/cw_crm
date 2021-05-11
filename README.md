@@ -1,1 +1,1 @@
-# cw_crm
+# CRM django project
