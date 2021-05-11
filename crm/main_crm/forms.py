@@ -3,7 +3,7 @@ from django.forms import ModelForm
 
 from .models import Company
 
-class AddCompanyForm(forms.models):
+class AddCompanyForm(ModelForm):
     company_name = forms.CharField(max_length=255,
                         widget = forms.TextInput(
                             attrs = {

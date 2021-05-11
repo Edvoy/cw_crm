@@ -6,9 +6,9 @@ def index(request):
     companies = Company.objects.all()
     formatted_companies = ["<li>{}</li>".format(companies.company_name) for company in companies]
     context = {
-        'company' : companies,
+        'companies' : companies,
     }
-    return render(request, 'companies/index.html', context)
+    return render(request, 'main_crm/index.html', context)
 
 def addCompany(request):
     form = AddCompanyForm(request.POST)
@@ -32,6 +32,6 @@ def updateCompany(request, id):
     context = {
         'updateForm' : updateForm,
         'key' : id,
-        'company' : Company.objects.all(),
+        'companies' : Company.objects.all(),
     }
-    return render(request, 'companies/index.html', context)
+    return render(request, 'main_crm/index.html', context)
