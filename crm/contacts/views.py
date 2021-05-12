@@ -6,33 +6,33 @@ def listContact(request):
     contacts = Contact.objects.all()
     form = ContactForm()
     context = {
-        'companies' : contacts,
+        'contacts' : contacts,
         'form' : form
     }
-    return render(request, 'contacts/index.html', context)
+    return render(request, 'index.html', context)
 
-def addCompany(request):
+def addContact(request):
     form = ContactForm(request.POST)
     if form.is_valid():
         form.save()
-    return redirect('/')
+    return redirect('/listContact')
 
-def deleteCompany(request, id):
+def deleteContact(request, id):
     contacts = Contact.objects.get(pk = id)
     contacts.delete()
-    return redirect('/')
+    return redirect('/listContact')
 
-def updateCompany(request, id):
+def updateContact(request, id):
     contacts = Contact.objects.get(pk = id)
     updateForm = ContactForm(instance = contacts)
     if request.method == 'POST':
         form = ContactForm(request.POST, instance = contacts)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/listContact')
     context = {
         'updateForm' : updateForm,
         'key' : id,
-        'companies' : Contact.objects.all(),
+        'contacts' : Contact.objects.all(),
     }
-    return render(request, 'contacts/index.html', context)
+    return render(request, 'index.html', context)

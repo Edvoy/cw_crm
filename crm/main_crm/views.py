@@ -9,7 +9,7 @@ def index(request):
         'companies' : companies,
         'form' : form
     }
-    return render(request, 'main_crm/index.html', context)
+    return render(request, 'index.html', context)
 
 def addCompany(request):
     form = CompanyForm(request.POST)
@@ -35,4 +35,4 @@ def updateCompany(request, id):
         'key' : id,
         'companies' : Company.objects.all(),
     }
-    return render(request, 'main_crm/index.html', context)
+    return render(request, 'index.html', context)
