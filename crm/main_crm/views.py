@@ -9,12 +9,13 @@ def index(request):
         'companies' : companies,
         'form' : form
     }
-    return render(request, 'index.html', context)
+    return render(request, 'main_crm/index.html', context)
 
 def addCompany(request):
     form = CompanyForm(request.POST)
     if form.is_valid():
         form.save()
+        print("coucou")
     return redirect('/')
 
 def deleteCompany(request, id):
@@ -35,4 +36,4 @@ def updateCompany(request, id):
         'key' : id,
         'companies' : Company.objects.all(),
     }
-    return render(request, 'index.html', context)
+    return render(request, 'main_crm/index.html', context)

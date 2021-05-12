@@ -5,18 +5,11 @@ from .models import Contact
 
 class ContactForm(ModelForm):
 
-    COMPANY_CHOICES = (
-        ('LOW', "Low"),
-        ('MEDIUM', "Medium"),
-        ('HIGH', "High"),
-        ('NONE', "priorité"),
-    )
-
     contact_first_name = forms.CharField(max_length=255,
                         widget = forms.TextInput(
                             attrs = {
                                 'class' : 'form-control',
-                                'placeholder' : 'company name', 
+                                'placeholder' : 'firstname', 
                             }
                         )
                     )
@@ -24,30 +17,22 @@ class ContactForm(ModelForm):
                         widget = forms.TextInput(
                             attrs = {
                                 'class' : 'form-control',
-                                'placeholder' : 'company name', 
+                                'placeholder' : 'lastname', 
                             }
                         )
                     )
-    contact_company = forms.CharField(required = False,
-                        max_length = 255,
-                         widget = forms.Select(
-                            choices = COMPANY_CHOICES, 
-                            attrs = {
-                                'class' : 'form-control',
-                                'placeholder' : 'priorité', 
-                            }
-                         ),
-                     )
+    contact_company = Contact 
+    
     contact_job = forms.CharField(required = False,
                         max_length = 50,
                          widget = forms.TextInput(
                              attrs = {
                                  'class' : 'form-control',
-                                 'placeholder' : 'zip code', 
+                                 'placeholder' : 'job', 
                              }
                          ),
                      )
-    contact_email = forms.CharField(required = False,
+    contact_email = forms.CharField(required = True,
                         max_length = 100,
                          widget = forms.TextInput(
                              attrs = {

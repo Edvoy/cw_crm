@@ -9,7 +9,7 @@ def listContact(request):
         'contacts' : contacts,
         'form' : form
     }
-    return render(request, 'index.html', context)
+    return render(request, 'contacts/index.html', context)
 
 def addContact(request):
     form = ContactForm(request.POST)
@@ -23,10 +23,10 @@ def deleteContact(request, id):
     return redirect('/listContact')
 
 def updateContact(request, id):
-    contacts = Contact.objects.get(pk = id)
-    updateForm = ContactForm(instance = contacts)
+    contact = Contact.objects.get(pk = id)
+    updateForm = ContactForm(instance = contact)
     if request.method == 'POST':
-        form = ContactForm(request.POST, instance = contacts)
+        form = ContactForm(request.POST, instance = contact)
         if form.is_valid():
             form.save()
             return redirect('/listContact')
@@ -35,4 +35,4 @@ def updateContact(request, id):
         'key' : id,
         'contacts' : Contact.objects.all(),
     }
-    return render(request, 'index.html', context)
+    return render(request, 'contacts/index.html', context)

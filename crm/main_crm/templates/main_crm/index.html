@@ -43,84 +43,83 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card border-info mb-3" >
+                    <div class="card-header text-center">Companies</div>
                         <div class="card-body text-info">
                             <!-- display update form -->
                             {% if updateForm %}
-                                <form action="{% url 'contacts:Add_Contact' %}" method="post">
+                                <form action="{% url 'main_crm:Update_Company' key %}" method="post">
                                     {% csrf_token %}
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_first_name }}
-                                        {{ form.contact_last_name }}
+                                        {{ updateForm.company_name }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_company }}
-                                        {{ form.contact_job }}
+                                        {{ updateForm.company_adress }}
+                                        {{ updateForm.company_zip_code }}
+                                        {{ updateForm.company_city }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_email }}
-                                        {{ form.contact_phone }}
+                                        {{ updateForm.company_email }}
+                                        {{ updateForm.company_phone }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_notes }}
+                                        {{ updateForm.company_notes }}
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Update contact</button>
-                                        </div>  
+                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Update company</button>
+                                        </div> 
                                     </div>
                                 </form>
                             <!-- add form -->
                             {% else %}
-                                <form action="{% url 'contacts:Add_Contact' %}" method="post">
+                                <form action="{% url 'main_crm:Add_Company' %}" method="post">
                                     {% csrf_token %}
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_first_name }}
-                                        {{ form.contact_last_name }}
+                                        {{ form.company_name }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_company }}
-                                        {{ form.contact_job }}
+                                        {{ form.company_adress }}
+                                        {{ form.company_zip_code }}
+                                        {{ form.company_city }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_email }}
-                                        {{ form.contact_phone }}
+                                        {{ form.company_email }}
+                                        {{ form.company_phone }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_notes }}
+                                        {{ form.company_notes }}
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add contact</button>
+                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add company</button>
                                         </div>  
                                     </div>
                                 </form>
                             {% endif %}
                             <!-- END add form -->
-                            <!-- contacts display -->
-                            {% for contact in contacts %}
+                            <!-- companies display -->
+                            {% for company in companies %}
                                 <div class="card mt-2 shadow-sm">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-10">
-                                                <div class="input-group mb-2 shadow bg-white">
-                                                    <h5 class="card-title">
-                                                        {{ contact.contact_first_name }}
-                                                        {{ contact.contact_last_name }}
-                                                    </h5>
-                                                </div>
+                                                <h5 class="card-title">
+                                                    {{ company.company_name }}
+                                                </h5>
                                                 <div class="card-body text-info">
-                                                    <div>{{ contact.contact_company }}</div>
-                                                    <div>{{ contact.contact_job }}</div>
-                                                    <div>{{ contact.contact_email }}</div>
-                                                    <div>{{ contact.contact_phone }}</div>
-                                                    <div>{{ contact.contact_notes }}</div>
+                                                    <div>{{ company.company_adress }}</div>
+                                                    <div>{{ company.company_zip_code }}</div>
+                                                    <div>{{ company.company_city }}</div>
+                                                    <div>{{ company.company_email }}</div>
+                                                    <div>{{ company.company_phone }}</div>
+                                                    <div>{{ company.company_notes }}</div>
                                                 </div>
                                             </div>
                                             <!-- update button -->
                                             <div class="col-1 close">
-                                                <a href="{% url 'contacts:Update_Contact' contact.id %}">
+                                                <a href="{% url 'main_crm:Update_Company' company.id %}">
                                                     <i class="fas fa-marker"></i>
                                                 </a>
                                             </div>
                                             <!-- delete button -->
                                             <div class="col-1">
-                                                <a href="{% url 'contacts:Delete_Contact' contact.id %}">
+                                                <a href="{% url 'main_crm:Delete_Company' company.id %}">
                                                     <button type="button" class="close" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -130,7 +129,7 @@
                                     </div>
                                 </div>        
                             {% endfor %}
-                            <!-- END contacts display -->
+                            <!-- END companies display -->
                         </div>
                     </div>
                 </div>
