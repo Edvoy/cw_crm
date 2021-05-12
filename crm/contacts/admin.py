@@ -12,3 +12,5 @@ class ContactAdmin(admin.ModelAdmin):
         'company_phone',
         'company_notes',
      ]
+
+admin.site.register(Contact, ContactAdmin)

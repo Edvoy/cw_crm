@@ -3,10 +3,11 @@ from django.db import models
 from main_crm.models import Company
 from phonenumber_field.modelfields import PhoneNumberField
 
+DEFAULT_COMPANY = ""
 class Contact(models.Model):
     contact_first_name = models.CharField(max_length=255)
     contact_last_name = models.CharField(max_length=255)
-    contact_company = models.ForeignKey('Company', on_delete=models.CASCADE,)
+    contact_company = models.ForeignKey(Company, on_delete=models.CASCADE, default= DEFAULT_COMPANY)
     contact_job = models.CharField(blank=True, max_length=255)
     contact_email = models.EmailField(unique=True)
     contact_phone = PhoneNumberField(blank=True)
