@@ -30,25 +30,26 @@
                                     <form action="{% url 'main_crm:Update_Company' key %}" method="post">
                                         {% csrf_token %}
                                         <div class="input-group mb-2 shadow bg-white">
-                                            {{ form.company_name }}
+                                            {{ updateForm.company_name }}
                                         </div>
                                         <div class="input-group mb-2 shadow bg-white">
-                                            {{ form.company_adress }}
-                                            {{ form.company_zip_code }}
-                                            {{ form.company_city }}
+                                            {{ updateForm.company_adress }}
+                                            {{ updateForm.company_zip_code }}
+                                            {{ updateForm.company_city }}
                                         </div>
                                         <div class="input-group mb-2 shadow bg-white">
-                                            {{ form.company_email }}
-                                            {{ form.company_phone }}
+                                            {{ updateForm.company_email }}
+                                            {{ updateForm.company_phone }}
                                         </div>
                                         <div class="input-group mb-2 shadow bg-white">
-                                            {{ form.company_notes }}
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Update</button>
-                                        </div>  
+                                            {{ updateForm.company_notes }}
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Update</button>
+                                            </div> 
+                                        </div>
                                     </form>
-                                {% endif %}
                                 <!-- add form -->
+                                {% else %}
                                     <form action="{% url 'main_crm:Add_Company' %}" method="post">
                                         {% csrf_token %}
                                         <div class="input-group mb-2 shadow bg-white">
@@ -70,6 +71,7 @@
                                             </div>  
                                         </div>
                                     </form>
+                                {% endif %}
                                 <!-- END add form -->
                                 <!-- companies display -->
                                 {% for company in companies %}
