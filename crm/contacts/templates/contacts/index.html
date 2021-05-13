@@ -111,21 +111,21 @@
                                                     <div>{{ contact.contact_notes }}</div>
                                                 </div>
                                             </div>
-                                            <!-- update button -->
                                             <div class="col-1 close">
-                                                <a href="{% url 'contacts:Update_Contact' contact.id %}">
-                                                    <i class="fas fa-marker"></i>
-                                                </a>
+                                                <!-- update button -->
+                                                <div class="col-1">
+                                                    <a href="{% url 'contacts:Update_Contact' contact.id %}">
+                                                        <i class="fas fa-marker"></i>
+                                                    </a>
+                                                </div>
+                                                <!-- delete button -->
+                                                <div class="col-1">
+                                                    <a href="{% url 'contacts:Delete_Contact' contact.id %}">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <!-- delete button -->
-                                            <div class="col-1">
-                                                <a href="{% url 'contacts:Delete_Contact' contact.id %}">
-                                                    <button type="button" class="close" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                            </div>  
                                         </div>
                                     </div>
                                 </div>        

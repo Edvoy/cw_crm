@@ -37,8 +37,6 @@
                     </div>
                 </div>
             </nav> 
-        
-        <div>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-12">
@@ -111,24 +109,31 @@
                                                     <div>{{ company.company_notes }}</div>
                                                 </div>
                                             </div>
-                                            <!-- update button -->
                                             <div class="col-1 close">
-                                                <a href="{% url 'companies:Update_Company' company.id %}">
-                                                    <i class="fas fa-marker"></i>
-                                                </a>
-                                            </div>
-                                            <!-- delete button -->
-                                            <div class="col-1">
-                                                <a href="{% url 'companies:Delete_Company' company.id %}">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                            <!-- filter button -->
-                                            <div class="col-1">
-                                                <div class="col-1 close">
-                                                <a href="{% url 'contacts:Filter_Contact' company.id %}">
-                                                    <i class="fas fa-filter"></i>
-                                                </a>
+                                                <!-- update button -->
+                                                <div class="col-1">
+                                                    <a href="{% url 'companies:Update_Company' company.id %}">
+                                                        <i class="fas fa-marker"></i>
+                                                    </a>
+                                                </div>
+                                                <!-- delete button -->
+                                                <div class="col-1">
+                                                    <a href="{% url 'companies:Delete_Company' company.id %}">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                                <!-- filter button -->
+                                                <div class="col-1">
+                                                    <a href="{% url 'contacts:Filter_Contact' company.id %}">
+                                                        <i class="fas fa-filter"></i>
+                                                    </a>
+                                                </div>
+                                                <!-- mail button -->
+                                                <div class="col-1">
+                                                    <a href="{% url 'contacts:Filter_Contact' company.id %}">
+                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
