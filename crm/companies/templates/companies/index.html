@@ -26,13 +26,13 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000">Companies <span class="sr-only"></span></a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/listCompanies">Companies <span class="sr-only"></span></a>
                         </ul>
                         <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000/listContact">Contacts <span class="sr-only"></span></a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/listContacts">Contacts <span class="sr-only"></span></a>
                         </ul>
                         <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000">Emails <span class="sr-only"></span></a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/listEmails">Emails <span class="sr-only"></span></a>
                         </ul>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         <div class="card-body text-info">
                             <!-- display update form -->
                             {% if updateForm %}
-                                <form action="{% url 'main_crm:Update_Company' key %}" method="post">
+                                <form action="{% url 'companies:Update_Company' key %}" method="post">
                                     {% csrf_token %}
                                     <div class="input-group mb-2 shadow bg-white">
                                         {{ updateForm.company_name }}
@@ -70,7 +70,7 @@
                                 </form>
                             <!-- add form -->
                             {% else %}
-                                <form action="{% url 'main_crm:Add_Company' %}" method="post">
+                                <form action="{% url 'companies:Add_Company' %}" method="post">
                                     {% csrf_token %}
                                     <div class="input-group mb-2 shadow bg-white">
                                         {{ form.company_name }}
@@ -113,13 +113,13 @@
                                             </div>
                                             <!-- update button -->
                                             <div class="col-1 close">
-                                                <a href="{% url 'main_crm:Update_Company' company.id %}">
+                                                <a href="{% url 'companies:Update_Company' company.id %}">
                                                     <i class="fas fa-marker"></i>
                                                 </a>
                                             </div>
                                             <!-- delete button -->
                                             <div class="col-1">
-                                                <a href="{% url 'main_crm:Delete_Company' company.id %}">
+                                                <a href="{% url 'companies:Delete_Company' company.id %}">
                                                     <button type="button" class="close" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>

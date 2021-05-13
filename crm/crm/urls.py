@@ -18,6 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main_crm.urls')),
+    #path('', include('main_crm.urls')),
+    path('', include('companies.urls')),
     path('', include('contacts.urls')),
+    path('', include('emails.urls')),
 ]

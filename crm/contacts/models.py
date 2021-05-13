@@ -1,6 +1,6 @@
 from django.db import models
 
-from main_crm.models import Company
+from companies.models import Company
 from phonenumber_field.modelfields import PhoneNumberField
 class Contact(models.Model):
     contact_first_name = models.CharField(max_length=255)

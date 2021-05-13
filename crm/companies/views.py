@@ -2,26 +2,25 @@ from django.shortcuts import render, redirect
 from .models import Company
 from .forms import CompanyForm
 
-def index(request):
+def listCompanies(request):
     companies = Company.objects.all()
     form = CompanyForm()
     context = {
         'companies' : companies,
         'form' : form
     }
-    return render(request, 'main_crm/index.html', context)
+    return render(request, 'companies/index.html', context)
 
 def addCompany(request):
     form = CompanyForm(request.POST)
     if form.is_valid():
         form.save()
-        print("coucou")
-    return redirect('/')
+    return redirect('/listCompanies')
 
 def deleteCompany(request, id):
     company = Company.objects.get(pk = id)
     company.delete()
-    return redirect('/')
+    return redirect('/listCompanies')
 
 def updateCompany(request, id):
     company = Company.objects.get(pk = id)
@@ -30,10 +29,10 @@ def updateCompany(request, id):
         form = CompanyForm(request.POST, instance = company)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/listCompanies')
     context = {
         'updateForm' : updateForm,
         'key' : id,
         'companies' : Company.objects.all(),
     }
-    return render(request, 'main_crm/index.html', context)
+    return render(request, 'companies/index.html', context)
