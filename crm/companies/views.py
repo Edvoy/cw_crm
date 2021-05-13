@@ -15,12 +15,12 @@ def addCompany(request):
     form = CompanyForm(request.POST)
     if form.is_valid():
         form.save()
-    return redirect('/listCompanies')
+    return redirect('/companies')
 
 def deleteCompany(request, id):
     company = Company.objects.get(pk = id)
     company.delete()
-    return redirect('/listCompanies')
+    return redirect('/companies')
 
 def updateCompany(request, id):
     company = Company.objects.get(pk = id)
@@ -29,7 +29,7 @@ def updateCompany(request, id):
         form = CompanyForm(request.POST, instance = company)
         if form.is_valid():
             form.save()
-            return redirect('/listCompanies')
+            return redirect('/companies')
     context = {
         'updateForm' : updateForm,
         'key' : id,

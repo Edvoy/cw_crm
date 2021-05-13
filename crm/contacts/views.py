@@ -15,12 +15,12 @@ def addContact(request):
     form = ContactForm(request.POST)
     if form.is_valid():
         form.save()
-    return redirect('/listContacts')
+    return redirect('/contacts')
 
 def deleteContact(request, id):
     contacts = Contact.objects.get(pk = id)
     contacts.delete()
-    return redirect('/listContacts')
+    return redirect('/contacts')
 
 def updateContact(request, id):
     contact = Contact.objects.get(pk = id)
@@ -29,7 +29,7 @@ def updateContact(request, id):
         form = ContactForm(request.POST, instance = contact)
         if form.is_valid():
             form.save()
-            return redirect('/listContacts')
+            return redirect('/contacts')
     context = {
         'updateForm' : updateForm,
         'key' : id,
