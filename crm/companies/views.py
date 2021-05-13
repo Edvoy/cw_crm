@@ -36,3 +36,4 @@ def updateCompany(request, id):
         'companies' : Company.objects.all(),
     }
     return render(request, 'companies/index.html', context)
+

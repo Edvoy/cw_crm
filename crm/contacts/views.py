@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Contact
 from .forms import ContactForm
 
+
 def listContact(request):
     contacts = Contact.objects.all()
     form = ContactForm()
@@ -34,5 +35,15 @@ def updateContact(request, id):
         'updateForm' : updateForm,
         'key' : id,
         'contacts' : Contact.objects.all(),
+    }
+    return render(request, 'contacts/index.html', context)
+
+def filterContact(request, id):
+
+    contacts = Contact.objects.filter(contact_company = id)
+    form = ContactForm(request.POST)
+    context = {
+        'contacts' : contacts,
+        'form' : form
     }
     return render(request, 'contacts/index.html', context)

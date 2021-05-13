@@ -120,11 +120,16 @@
                                             <!-- delete button -->
                                             <div class="col-1">
                                                 <a href="{% url 'companies:Delete_Company' company.id %}">
-                                                    <button type="button" class="close" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </a>
-                                            </div> 
+                                            </div>
+                                            <!-- filter button -->
+                                            <div class="col-1">
+                                                <div class="col-1 close">
+                                                <a href="{% url 'contacts:Filter_Contact' company.id %}">
+                                                    <i class="fas fa-filter"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>        
