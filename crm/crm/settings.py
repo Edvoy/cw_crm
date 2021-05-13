@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'main_crm',
+    #'main_crm',
     'companies',
     'contacts',
     'emails',
