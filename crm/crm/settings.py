@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main_crm',
+    'companies',
     'contacts',
+    'emails',
     'phonenumber_field',
 ]
 
