@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>CRM</title>
+        <title>SuperCRM</title>
 
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -51,19 +51,19 @@
                                 <form action="{% url 'contacts:Add_Contact' %}" method="post">
                                     {% csrf_token %}
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_first_name }}
-                                        {{ form.contact_last_name }}
+                                        {{ updateForm.contact_first_name }}
+                                        {{ updateForm.contact_last_name }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_company }}
-                                        {{ form.contact_job }}
+                                        {{ updateForm.contact_company }}
+                                        {{ updateForm.contact_job }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_email }}
-                                        {{ form.contact_phone }}
+                                        {{ updateForm.contact_email }}
+                                        {{ updateForm.contact_phone }}
                                     </div>
                                     <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.contact_notes }}
+                                        {{ updateForm.contact_notes }}
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Update contact</button>
                                         </div>  
@@ -139,5 +139,6 @@
     </body>
 
     <footer>
+       
     </footer>
 </html>

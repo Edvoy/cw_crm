@@ -32,7 +32,7 @@ class ContactForm(ModelForm):
                              }
                          ),
                      )
-    contact_email = forms.CharField(required = True,
+    contact_email = forms.CharField(required = False,
                         max_length = 100,
                          widget = forms.TextInput(
                              attrs = {
