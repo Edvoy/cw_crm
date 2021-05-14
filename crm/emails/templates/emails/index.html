@@ -16,24 +16,70 @@
     </head>
 
     <body>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container mt-4">
-                    <a class="navbar-brand" href="http://127.0.0.1:8000">
-                        SuperCRM
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000/companies">Companies <span class="sr-only"></span></a>
-                        </ul>
-                        <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000/contacts">Contacts <span class="sr-only"></span></a>
-                        </ul>
-                        <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000/emails">Emails <span class="sr-only"></span></a>
-                        </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container mt-4">
+                <a class="navbar-brand" href="http://127.0.0.1:8000">
+                    SuperCRM
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <a class="nav-link" href="http://127.0.0.1:8000/companies">Companies <span class="sr-only"></span></a>
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
+                        <a class="nav-link" href="http://127.0.0.1:8000/contacts">Contacts <span class="sr-only"></span></a>
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
+                        <a class="nav-link" href="http://127.0.0.1:8000/emails">Emails <span class="sr-only"></span></a>
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card border-info mb-3" >
+                        <div class="card-header text-center">Companies emails</div>
+                            <div class="card-body text-info">
+                                <!-- email display -->
+                                {% for email in emails %}
+                                    <div class="card mt-2 shadow-sm">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <div class="card-body text-info">
+                                                        <div>{{ email.from_email }}</div>
+                                                        <div>{{ email.to_email }}</div>
+                                                        <div>{{ email.email_subject }}</div>
+                                                        <div>{{ email.email_message }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-1 close">
+                                                    <!-- update button -->
+                                                    <div class="col-1">
+                                                        <a href="{% url 'contacts:Update_Contact' contact.id %}">
+                                                            <i class="fas fa-marker"></i>
+                                                        </a>
+                                                    </div>
+                                                    <!-- delete button -->
+                                                    <div class="col-1">
+                                                        <a href="{% url 'contacts:Delete_Contact' contact.id %}">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>        
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav> 
+            </div>
+        </div>
+    </body>

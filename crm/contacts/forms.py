@@ -63,9 +63,3 @@ class ContactForm(ModelForm):
     class Meta:
         model = Contact
         fields = '__all__'
-
-class SearchForm(ModelForm):
-    contact_company = Contact
-    class Meta:
-        model = Contact
-        fields = '__all__'

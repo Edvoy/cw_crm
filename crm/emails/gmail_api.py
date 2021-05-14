@@ -59,7 +59,6 @@ def unpack_payload(txt):
             subject = txt['payload'].get('headers')[n]['value']
         return recipient, sender, subject
 
-
 def payload2fields(txt):
     """
     Transform request GMail API to ready-to-use for emails app.
@@ -149,6 +148,5 @@ def getMail():
 
 if __name__ == '__main__':
     getMail()
-l
 
     
