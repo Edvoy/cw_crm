@@ -11,4 +11,4 @@ class Email(models.Model):
         ordering = ["receive_time"]
 
     def __str__(self):
-        return self.receive_time
+        return self.to_email

@@ -7,7 +7,6 @@ class EmailAdmin(admin.ModelAdmin):
         'to_email',
         'email_subject',
         'email_message',
-        'receive_time',
      ]
 
 admin.site.register(Email, EmailAdmin)
