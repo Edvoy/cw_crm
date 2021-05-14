@@ -22,7 +22,7 @@ class Setup_Class(TestCase):
             Contact.objects.create(
                 contact_first_name = "Jean",
                 contact_last_name = "Durnant",
-                #contact_company = "Super Company",
+                contact_company = "Super Company",
                 contact_job = "CTO",
                 contact_email = "jean@company.com",
                 contact_phone = "+33687120463",
