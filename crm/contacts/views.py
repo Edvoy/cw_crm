@@ -39,7 +39,6 @@ def updateContact(request, id):
     return render(request, 'contacts/index.html', context)
 
 def filterContact(request, id):
-
     contacts = Contact.objects.filter(contact_company = id)
     form = ContactForm(request.POST)
     context = {
