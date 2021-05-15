@@ -5,6 +5,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
+import re
 
 # If modifying these scopes, delete the file token.json.  
 SCOPES = 'https://mail.google.com/'
@@ -46,6 +47,9 @@ def getCredentials():
     return creds
 
 def unpack_payload(txt):
+    """
+    use to catch emails fields in payload2fields function for mimeType "text/plain" and "text/html"
+    """
     recipient, sender, subject = '','',''
     for n in range(len(txt['payload'].get('headers'))):
 
@@ -63,10 +67,10 @@ def payload2fields(txt):
     """
     Transform request GMail API to ready-to-use for emails app.
     """
+    #MIME errors management and capture message data
     mimeType = txt['payload'].get('mimeType')
     data, recipient, sender, subject = '', '', '', ''
 
-    #MIME errors management and capture message data
     if mimeType == "text/plain":
         try:
             recipient, sender, subject = unpack_payload(txt)
@@ -101,9 +105,7 @@ def payload2fields(txt):
     #     data = 
 
     else:
-        #print(">>> bad mimeType, need text/plain, text/html or multipart/alternative, no multipart/mixed")
-        pass
-    
+        print(">>> bad mimeType, need text/plain, text/html")        
 
     #email fields searching
     for n in range(len(txt['payload'].get('headers'))):
@@ -117,16 +119,25 @@ def payload2fields(txt):
         if txt['payload'].get('headers')[n]['name'] == 'Subject':
             subject = txt['payload'].get('headers')[n]['value']
 
-    #message decoded and cleaned
+    return sender, recipient, subject, data
+
+def cleanFieldsEmails(sender, recipient, subject, data):
+    #regex pattern
+    email_pattern = "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+    message_pattern = ""
+
+    #clean message
     decode = str(base64.urlsafe_b64decode(data))
     message = decode.strip("b'").split("\\r\\n")
-    return sender, recipient, subject, message[0] #todo: revenir sur message pour unpack de façon propre
+
+    sender = re.match(email_pattern, sender)
+    recipient = re.match(email_pattern, recipient)
+    subject = re.match(message_pattern, subject)
+    message = message[0]
+
+    return sender, recipient, subject, message
 
 def getMail():
-    global sender
-    global recipient
-    global subject
-    global message
     """
     Shows basic usage of the Gmail API. Ready2Use from google. see link at the top
     """
@@ -140,13 +151,12 @@ def getMail():
     if messages != None : 
         for msg in messages:
                 txt = service.users().messages().get(userId='me', id=msg['id']).execute()
-                sender, recipient, subject, message = payload2fields(txt)
+                sender, recipient, subject, data = payload2fields(txt)
+                sender, recipient, subject, message = cleanFieldsEmails(sender, recipient, subject, data)
     else :
         sender, recipient, subject, message = "No emails!","","",""
     
     return sender, recipient, subject, message
 
-if __name__ == '__main__':
-    getMail()
 
     

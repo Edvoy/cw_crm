@@ -1,0 +1,21 @@
+<form action="{% url 'contacts:Add_Contact' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-2 shadow bg-white">
+        {{ form.contact_first_name }}
+        {{ form.contact_last_name }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ form.contact_company }}
+        {{ form.contact_job }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ form.contact_email }}
+        {{ form.contact_phone }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ form.contact_notes }}
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add contact</button>
+        </div>  
+    </div>
+</form>

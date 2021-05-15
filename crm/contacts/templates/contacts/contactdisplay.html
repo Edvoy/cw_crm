@@ -1,0 +1,34 @@
+<div class="card mt-2 shadow-sm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-10">
+                <h5 class="card-title">
+                    {{ contact.contact_first_name }}
+                    {{ contact.contact_last_name }}
+                </h5>
+                <div class="card-body text-info">
+                    <div>{{ contact.contact_company }}</div>
+                    <div>{{ contact.contact_job }}</div>
+                    <div>{{ contact.contact_email }}</div>
+                    <div>{{ contact.contact_phone }}</div>
+                    <div>{{ contact.contact_notes }}</div>
+                </div>
+            </div>
+            <div class="col-1 close">
+                <!-- update button -->
+                <div class="col-1">
+                    <a href="{% url 'contacts:Update_Contact' contact.id %}">
+                        <i class="fas fa-marker"></i>
+                    </a>
+                </div>
+                <!-- delete button -->
+                <div class="col-1">
+                    <a href="{% url 'contacts:Delete_Contact' contact.id %}">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<form action="{% url 'companies:Update_Company' key %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-2 shadow bg-white">
+        {{ updateForm.company_name }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ updateForm.company_adress }}
+        {{ updateForm.company_zip_code }}
+        {{ updateForm.company_city }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ updateForm.company_email }}
+        {{ updateForm.company_phone }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ updateForm.company_notes }}
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Update company</button>
+        </div> 
+    </div>
+</form>

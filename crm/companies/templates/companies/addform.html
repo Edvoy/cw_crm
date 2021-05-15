@@ -1,0 +1,21 @@
+<form action="{% url 'companies:Add_Company' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group mb-2 shadow bg-white">
+        {{ form.company_name }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ form.company_adress }}
+        {{ form.company_zip_code }}
+        {{ form.company_city }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ form.company_email }}
+        {{ form.company_phone }}
+    </div>
+    <div class="input-group mb-2 shadow bg-white">
+        {{ form.company_notes }}
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add company</button>
+        </div>  
+    </div>
+</form>

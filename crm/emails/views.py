@@ -4,7 +4,7 @@ from .models import Email
 from .forms import EmailForm
 
 
-def addMails():
+def syncMails():
     sender, recipient, subject, message = getMail()
     Email.objects.create(from_email = sender, to_email = recipient, email_subject = subject, email_message = message)
     return redirect('/')
@@ -16,7 +16,7 @@ def delMails(id):
 def listEmail(request):
     emails = Email.objects.all()
     form = EmailForm()
-    addMails()
+    syncMails()
     context = {
         'emails' : emails,
         'form' : form,

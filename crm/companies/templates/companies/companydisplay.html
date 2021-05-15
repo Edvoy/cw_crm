@@ -1,0 +1,45 @@
+<div class="card mt-2 shadow-sm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-10">
+                <h5 class="card-title">
+                    {{ company.company_name }}
+                </h5>
+                <div class="card-body text-info">
+                    <div>{{ company.company_adress }}</div>
+                    <div>{{ company.company_zip_code }}</div>
+                    <div>{{ company.company_city }}</div>
+                    <div>{{ company.company_email }}</div>
+                    <div>{{ company.company_phone }}</div>
+                    <div>{{ company.company_notes }}</div>
+                </div>
+            </div>
+            <div class="col-1 close">
+                <!-- update button -->
+                <div class="col-1">
+                    <a href="{% url 'companies:Update_Company' company.id %}">
+                        <i class="fas fa-marker"></i>
+                    </a>
+                </div>
+                <!-- delete button -->
+                <div class="col-1">
+                    <a href="{% url 'companies:Delete_Company' company.id %}">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <!-- filter button -->
+                <div class="col-1">
+                    <a href="{% url 'contacts:Filter_Contact' company.id %}">
+                        <i class="fas fa-filter"></i>
+                    </a>
+                </div>
+                <!-- mail button -->
+                <div class="col-1">
+                    <a href="{% url 'emails:Filter_Email' %}">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
