@@ -16,130 +16,45 @@
     </head>
 
     <body>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container mt-4">
-                    <a class="navbar-brand" href="http://127.0.0.1:8000">
-                        SuperCRM
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000/companies">Companies <span class="sr-only"></span></a>
-                        </ul>
-                        <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000/contacts">Contacts <span class="sr-only"></span></a>
-                        </ul>
-                        <ul class="navbar-nav mr-auto">
-                            <a class="nav-link" href="http://127.0.0.1:8000/emails">Emails <span class="sr-only"></span></a>
-                        </ul>
-                    </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container mt-4">
+                <a class="navbar-brand" href="http://127.0.0.1:8000">
+                    SuperCRM
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <a class="nav-link" href="http://127.0.0.1:8000/companies">Companies <span class="sr-only"></span></a>
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
+                        <a class="nav-link" href="http://127.0.0.1:8000/contacts">Contacts <span class="sr-only"></span></a>
+                    </ul>
+                    <ul class="navbar-nav mr-auto">
+                        <a class="nav-link" href="http://127.0.0.1:8000/emails">Emails <span class="sr-only"></span></a>
+                    </ul>
                 </div>
-            </nav> 
+            </div>
+        </nav> 
         <div class="container mt-4">
             <div class="row">
                 <div class="col-12">
+                <!-- main -->
                     <div class="card border-info mb-3" >
                     <div class="card-header text-center">Companies</div>
                         <div class="card-body text-info">
                             <!-- display update form -->
                             {% if updateForm %}
-                                <form action="{% url 'companies:Update_Company' key %}" method="post">
-                                    {% csrf_token %}
-                                    <div class="input-group mb-2 shadow bg-white">
-                                        {{ updateForm.company_name }}
-                                    </div>
-                                    <div class="input-group mb-2 shadow bg-white">
-                                        {{ updateForm.company_adress }}
-                                        {{ updateForm.company_zip_code }}
-                                        {{ updateForm.company_city }}
-                                    </div>
-                                    <div class="input-group mb-2 shadow bg-white">
-                                        {{ updateForm.company_email }}
-                                        {{ updateForm.company_phone }}
-                                    </div>
-                                    <div class="input-group mb-2 shadow bg-white">
-                                        {{ updateForm.company_notes }}
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Update company</button>
-                                        </div> 
-                                    </div>
-                                </form>
+                                {% include 'companies/updateform.html' %}
                             <!-- add form -->
                             {% else %}
-                                <form action="{% url 'companies:Add_Company' %}" method="post">
-                                    {% csrf_token %}
-                                    <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.company_name }}
-                                    </div>
-                                    <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.company_adress }}
-                                        {{ form.company_zip_code }}
-                                        {{ form.company_city }}
-                                    </div>
-                                    <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.company_email }}
-                                        {{ form.company_phone }}
-                                    </div>
-                                    <div class="input-group mb-2 shadow bg-white">
-                                        {{ form.company_notes }}
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add company</button>
-                                        </div>  
-                                    </div>
-                                </form>
+                                {% include 'companies/addform.html' %}
                             {% endif %}
-                            <!-- END add form -->
                             <!-- companies display -->
                             {% for company in companies %}
-                                <div class="card mt-2 shadow-sm">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <h5 class="card-title">
-                                                    {{ company.company_name }}
-                                                </h5>
-                                                <div class="card-body text-info">
-                                                    <div>{{ company.company_adress }}</div>
-                                                    <div>{{ company.company_zip_code }}</div>
-                                                    <div>{{ company.company_city }}</div>
-                                                    <div>{{ company.company_email }}</div>
-                                                    <div>{{ company.company_phone }}</div>
-                                                    <div>{{ company.company_notes }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-1 close">
-                                                <!-- update button -->
-                                                <div class="col-1">
-                                                    <a href="{% url 'companies:Update_Company' company.id %}">
-                                                        <i class="fas fa-marker"></i>
-                                                    </a>
-                                                </div>
-                                                <!-- delete button -->
-                                                <div class="col-1">
-                                                    <a href="{% url 'companies:Delete_Company' company.id %}">
-                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                    </a>
-                                                </div>
-                                                <!-- filter button -->
-                                                <div class="col-1">
-                                                    <a href="{% url 'contacts:Filter_Contact' company.id %}">
-                                                        <i class="fas fa-filter"></i>
-                                                    </a>
-                                                </div>
-                                                <!-- mail button -->
-                                                <div class="col-1">
-                                                    <a href="{% url 'emails:Filter_Email' %}">
-                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>        
+                                {% include 'companies/companydisplay.html' %}
                             {% endfor %}
-                            <!-- END companies display -->
                         </div>
                     </div>
                 </div>

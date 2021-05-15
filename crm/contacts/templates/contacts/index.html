@@ -42,94 +42,21 @@
         <div class="container mt-4">
             <div class="row">
                 <div class="col-12">
+                <!-- main -->
                     <div class="card border-info mb-3" >
                         <div class="card-header text-center">Contacts</div>
                             <div class="card-body text-info">
                                 <!-- display update form -->
                                 {% if updateForm %}
-                                    <form action="{% url 'contacts:Add_Contact' %}" method="post">
-                                        {% csrf_token %}
-                                        <div class="input-group mb-2 shadow bg-white">
-                                            {{ updateForm.contact_first_name }}
-                                            {{ updateForm.contact_last_name }}
-                                        </div>
-                                        <div class="input-group mb-2 shadow bg-white">
-                                            {{ updateForm.contact_company }}
-                                            {{ updateForm.contact_job }}
-                                        </div>
-                                        <div class="input-group mb-2 shadow bg-white">
-                                            {{ updateForm.contact_email }}
-                                            {{ updateForm.contact_phone }}
-                                        </div>
-                                        <div class="input-group mb-2 shadow bg-white">
-                                            {{ updateForm.contact_notes }}
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Update contact</button>
-                                            </div>  
-                                        </div>
-                                    </form>
+                                    {% include 'contacts/updateform.html' %}
                                 <!-- add form -->
                                 {% else %}
-                                    <form action="{% url 'contacts:Add_Contact' %}" method="post">
-                                        {% csrf_token %}
-                                        <div class="input-group mb-2 shadow bg-white">
-                                            {{ form.contact_first_name }}
-                                            {{ form.contact_last_name }}
-                                        </div>
-                                        <div class="input-group mb-2 shadow bg-white">
-                                            {{ form.contact_company }}
-                                            {{ form.contact_job }}
-                                        </div>
-                                        <div class="input-group mb-2 shadow bg-white">
-                                            {{ form.contact_email }}
-                                            {{ form.contact_phone }}
-                                        </div>
-                                        <div class="input-group mb-2 shadow bg-white">
-                                            {{ form.contact_notes }}
-                                            <div class="input-group-append">
-                                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add contact</button>
-                                            </div>  
-                                        </div>
-                                    </form>
+                                    {% include 'contacts/addform.html' %}
                                 {% endif %}
                                 <!-- contacts display -->
                                 {% for contact in contacts %}
-                                    <div class="card mt-2 shadow-sm">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-10">
-                                                    <h5 class="card-title">
-                                                        {{ contact.contact_first_name }}
-                                                        {{ contact.contact_last_name }}
-                                                    </h5>
-                                                    <div class="card-body text-info">
-                                                        <div>{{ contact.contact_company }}</div>
-                                                        <div>{{ contact.contact_job }}</div>
-                                                        <div>{{ contact.contact_email }}</div>
-                                                        <div>{{ contact.contact_phone }}</div>
-                                                        <div>{{ contact.contact_notes }}</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1 close">
-                                                    <!-- update button -->
-                                                    <div class="col-1">
-                                                        <a href="{% url 'contacts:Update_Contact' contact.id %}">
-                                                            <i class="fas fa-marker"></i>
-                                                        </a>
-                                                    </div>
-                                                    <!-- delete button -->
-                                                    <div class="col-1">
-                                                        <a href="{% url 'contacts:Delete_Contact' contact.id %}">
-                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>        
+                                    {% include 'contacts/contactdisplay.html' %}
                                 {% endfor %}
-                                <!-- END contacts display -->
                             </div>
                         </div>
                     </div>
