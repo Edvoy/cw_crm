@@ -1,4 +1,4 @@
-credentials.json
+crm/credentials.json
 env/
 .DS_Store
-token.json
+crm/token.json
