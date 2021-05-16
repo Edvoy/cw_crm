@@ -10,6 +10,7 @@ def syncMails():
     Email.objects.create(from_email = sender, to_email = recipient, email_subject = subject, email_message = message)
     return redirect('/')
 
+#todo: comprendre pourquoi la supression n'est pas définitive
 def deleteEmail(request,id):
     email = Email.objects.get(pk = id)
     email.delete()

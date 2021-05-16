@@ -3,6 +3,7 @@ from .models import Company
 from .forms import CompanyForm
 
 def listCompanies(request):
+    #todo : ajouter multiprocessing ici avec timer pour syncMail
     companies = Company.objects.all()
     form = CompanyForm()
     context = {

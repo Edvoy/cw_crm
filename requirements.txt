@@ -3,6 +3,7 @@ cachetools==4.2.2
 certifi==2020.12.5
 chardet==4.0.0
 Django==3.2.2
+django-crontab==0.7.1
 django-phonenumber-field==5.1.0
 google-api-core==1.26.3
 google-api-python-client==2.4.0
