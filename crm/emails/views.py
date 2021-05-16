@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from emails.gmail_api import getMail
+from contacts.models import Contact
 from .models import Email
 from .forms import EmailForm
 
@@ -9,14 +10,14 @@ def syncMails():
     Email.objects.create(from_email = sender, to_email = recipient, email_subject = subject, email_message = message)
     return redirect('/')
 
-def delMails(id):
-    Email.objects.get(pk = id).delete()
+def deleteEmail(request,id):
+    email = Email.objects.get(pk = id)
+    email.delete()
     return redirect('/')
 
 def listEmail(request):
     emails = Email.objects.all()
     form = EmailForm()
-    syncMails()
     context = {
         'emails' : emails,
         'form' : form,
@@ -24,7 +25,8 @@ def listEmail(request):
     return render(request, 'emails/index.html', context)
 
 def filterEmail(request,id):
-    email = Email.objects.filter(contact_company = id)
+    print(id)
+    email = Email.objects.filter(to_email = id)
     form = EmailForm(request.POST)
     context = {
         'email' : email,
