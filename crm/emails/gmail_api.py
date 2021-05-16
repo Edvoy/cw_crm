@@ -124,19 +124,16 @@ def payload2fields(txt):
     return sender, recipient, subject, data
 
 def cleanFieldsEmails(sender, recipient, subject, data):
-    #todo : clean avec du regex
 
-    #regex pattern
-    email_pattern = "(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\\\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
-    message_pattern = ""
-
-    #clean message
     decode = str(base64.urlsafe_b64decode(data))
     message = decode.strip("b'").split("\\r\\n")
 
-    sender = re.match(email_pattern, sender)
-    recipient = re.match(email_pattern, recipient)
-    subject = re.match(message_pattern, subject)
+    sender = re.findall('\S+@\S+', sender)
+    sender = str(sender).strip("['<").strip(">']")
+
+    recipient = re.findall('\S+@\S+', recipient)
+    recipient = str(recipient).strip("['<").strip(">']")
+
     message = message[0]
 
     return sender, recipient, subject, message
@@ -158,8 +155,6 @@ def getMail():
                 sender, recipient, subject, data = payload2fields(txt)
                 sender, recipient, subject, message = cleanFieldsEmails(sender, recipient, subject, data)
     else :
-        sender, recipient, subject, message = "No emails!","","",""
-    
-    return sender, recipient, subject, message
+        sender, recipient, subject, message = "No emails!"," "," "," "
 
-    
+    return sender, recipient, subject, message
