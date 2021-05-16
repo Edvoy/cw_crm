@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
-from emails.gmail_api import getMail
-from contacts.models import Contact
+from .gmail_api import getMail
 from .models import Email
 from .forms import EmailForm
 
 
 def syncMails():
+    print("sync in progress")
     sender, recipient, subject, message = getMail()
     Email.objects.create(from_email = sender, to_email = recipient, email_subject = subject, email_message = message)
+    print("sync completed")
     return redirect('/')
 
 #todo: comprendre pourquoi la supression n'est pas définitive
@@ -25,8 +26,8 @@ def listEmail(request):
     }
     return render(request, 'emails/index.html', context)
 
+#todo: comprendre pourquoi le filter ne fonctionne pas
 def filterEmail(request,id):
-    print(id)
     email = Email.objects.filter(to_email = id)
     form = EmailForm(request.POST)
     context = {
