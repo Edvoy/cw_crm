@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Company
 from .forms import CompanyForm
+from emails.views import syncMails
 
 def listCompanies(request):
     companies = Company.objects.all()
@@ -29,6 +30,7 @@ def updateCompany(request, id):
         form = CompanyForm(request.POST, instance = company)
         if form.is_valid():
             form.save()
+            syncMails()
             return redirect('/companies')
     context = {
         'updateForm' : updateForm,

@@ -21,6 +21,7 @@ class ContactForm(ModelForm):
                             }
                         )
                     )
+
     contact_company = Contact 
     
     contact_job = forms.CharField(required = True,
@@ -38,11 +39,11 @@ class ContactForm(ModelForm):
                                  'placeholder' : 'email', 
                              }))
     
-    contact_phone = PhoneNumberField()
+    #contact_phone = PhoneNumberField()
 
     #todo: gérer les erreurs d'entrée de formulaire avec le regex (doesn't work yet)
     # contact_phone = forms.RegexField(regex=r'^\+?1?\d{9,15}$',error_message = ("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."))
-    
+    # contact_phone = forms.RegexField(regex='^\+?1?\d{9,15}$',error_messages = {"Invalid": "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."})
     # contact_phone = forms.CharField(required = True,
     #                     max_length = 100,
     #                     widget = forms.TextInput(
