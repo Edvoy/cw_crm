@@ -72,10 +72,16 @@ def filterEmailFromContact(request,id):
     return render(request, 'emails/index.html', context)
 
 def filterEmailFromCompany(request,id):
-    email = Email.objects.filter(field__in=Contact.object.filter(contact_company = id))
+    print("coucou")
+    print(request)
+    print(id)
+    email = Email.objects.filter(field__in=Contact.object.filter(contact_company = id)) #todo : corriger cette formule
+    print("------")
+    print(email)
     form = EmailForm(request.POST)
     context = {
         'emails' : email,
         'form' : form,
     }
+    print(context)
     return render(request, 'emails/index.html', context)
