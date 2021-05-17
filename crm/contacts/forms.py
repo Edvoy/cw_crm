@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from phonenumber_field.formfields import PhoneNumberField
 from .models import Contact
+from django.core.validators import RegexValidator
 
 class ContactForm(ModelForm):
 
@@ -39,20 +40,38 @@ class ContactForm(ModelForm):
                                  'placeholder' : 'email', 
                              }))
     
-    #contact_phone = PhoneNumberField()
-
-    #todo: gérer les erreurs d'entrée de formulaire avec le regex (doesn't work yet)
-    # contact_phone = forms.RegexField(regex=r'^\+?1?\d{9,15}$',error_message = ("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."))
+    
+    # todo: comprendre pourquoi la gestion d'erreurs de contact_phonene fonctionne pas
     # contact_phone = forms.RegexField(regex='^\+?1?\d{9,15}$',error_messages = {"Invalid": "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."})
+    
+    # contact_phone = PhoneNumberField()
+
     # contact_phone = forms.CharField(required = True,
-    #                     max_length = 100,
-    #                     widget = forms.TextInput(
+    #                 max_length = 100,
+    #                 validators=[
+    #                         RegexValidator(
+    #                         regex='^\+?1?\d{9,15}$',
+    #                         message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.",
+    #                         code='invalid_username'
+    #                         )
+    #                 ],
+    #                 widget = forms.TextInput(
     #                          attrs = {
     #                              'class' : 'form-control',
     #                              'placeholder' : 'phone number', 
-    #                          }
-    #                      )
-    #                  )
+    #                         }
+    #                 )
+    # )
+
+    contact_phone = forms.CharField(required = True,
+                        max_length = 100,
+                        widget = forms.TextInput(
+                             attrs = {
+                                 'class' : 'form-control',
+                                 'placeholder' : 'phone number (+33333333333)', 
+                             }
+                         )
+                     )
 
     contact_notes = forms.CharField(required = False,
                         max_length = 550,

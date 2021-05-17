@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Contact
 from .forms import ContactForm
+from emails.views import syncMailsWhenUpdateContact
 
 
 def listContact(request):
@@ -30,6 +31,7 @@ def updateContact(request, id):
         form = ContactForm(request.POST, instance = contact)
         if form.is_valid():
             form.save()
+            syncMailsWhenUpdateContact()
             return redirect('/contacts')
     context = {
         'updateForm' : updateForm,

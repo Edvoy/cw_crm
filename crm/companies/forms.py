@@ -39,21 +39,20 @@ class CompanyForm(ModelForm):
                              }
                          ),
                      )
-    company_email = forms.CharField(required = False,
-                        max_length = 100,
-                         widget = forms.TextInput(
+    company_email = forms.EmailField(required=True,widget = forms.EmailInput(
                              attrs = {
                                  'class' : 'form-control',
                                  'placeholder' : 'email', 
                              }
-                         ),
-                     )
+                             ),
+                             )
+    #todo: voir la gestion des erreurs dans contactform
     company_phone = forms.CharField(required = False,
                         max_length = 100,
                          widget = forms.TextInput(
                              attrs = {
                                  'class' : 'form-control',
-                                 'placeholder' : 'phone number', 
+                                 'placeholder' : 'phone number (+33333333333)', 
                              }
                          ),
                      )

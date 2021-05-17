@@ -3,6 +3,7 @@ from .models import Email
 
 class EmailAdmin(admin.ModelAdmin):
     fields = [
+        'contact_id',
         'from_email',
         'to_email',
         'email_subject',

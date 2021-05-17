@@ -5,8 +5,16 @@ from .models import Email
 
 class EmailForm(ModelForm):
 
-    from_email = Email
     to_email = forms.CharField(required = False,
+                        max_length = 100,
+                         widget = forms.TextInput(
+                             attrs = {
+                                 'class' : 'form-control',
+                                 'placeholder' : 'email', 
+                             }
+                         ),
+                     )
+    from_email = forms.CharField(required = False,
                         max_length = 100,
                          widget = forms.TextInput(
                              attrs = {

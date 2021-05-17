@@ -1,11 +1,14 @@
 from __future__ import print_function
 import os.path
 import base64
+import re
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-import re
+
+from contacts.models import Contact
+
 
 # If modifying these scopes, delete the file token.json.  
 SCOPES = 'https://mail.google.com/'
@@ -21,6 +24,7 @@ def getCredentials():
     if os.path.exists('token.json'):
         creds = Credentials.from_authorized_user_file('token.json', SCOPES)
     # If there are no (valid) credentials available, let the user log in.
+    
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
@@ -28,9 +32,9 @@ def getCredentials():
             flow = InstalledAppFlow.from_client_secrets_file(
                 'credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('token.json', 'w') as token:
-            token.write(creds.to_json())
+            # Save the credentials for the next run
+            with open('token.json', 'w') as token:
+                token.write(creds.to_json())
 
     service = build('gmail', 'v1', credentials=creds)
 
@@ -154,6 +158,8 @@ def getMail():
                 txt = service.users().messages().get(userId='me', id=msg['id']).execute()
                 sender, recipient, subject, data = payload2fields(txt)
                 sender, recipient, subject, message = cleanFieldsEmails(sender, recipient, subject, data)
+
+                
     else :
         sender, recipient, subject, message = "No emails!"," "," "," "
 
