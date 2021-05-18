@@ -10,7 +10,7 @@ The main idea was very simple : learn to become an autonomous junior developer.
 ## Usage
 
 ```
-gitclone https://github.com/Edvoy/Todoapp.git
+gitclone https://github.com/Edvoy/cw_crm.git
 docker-compose up
 
 ```
