@@ -5,7 +5,7 @@ from .models import Email
 
 class EmailForm(ModelForm):
 
-    contact_id = forms.CharField()
+    contact_id = forms.CharField(max_length = 100)
 
     to_email = forms.CharField(required = False,
                         max_length = 100,

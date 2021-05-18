@@ -7,24 +7,14 @@ from .forms import EmailForm
 from contacts.models import Contact
 
 
-def syncMails():
-    print("sync in progress")
-    sender, recipient, subject, message = getMail()
-    Email.objects.create(
-        from_email = sender,
-        to_email = recipient,
-        email_subject = subject,
-        email_message = message
-        )
-    print("sync completed")
-    return redirect('/emails')
-
 def syncMailsWhenUpdateContact():
     print("sync in progress")
     sender, recipient, subject, message = getMail()
-    contact = Contact.objects.filter(Q(contact_email=sender) |Q(contact_email=recipient)).values('id') # get contact id if sender or recipient in Contact
+    contact = Contact.objects.filter(
+        Q(contact_email=sender) | Q(contact_email=recipient)
+        ).values('id') # get contact id if sender or recipient in Contact
     Email.objects.create(
-        contact_id = contact,
+        contact_id = contact, #todo: ValueError: Cannot assign "<QuerySet [{'id': 8}]>": "Email.contact_id" must be a "Contact" instance.
         from_email = sender,
         to_email = recipient,
         email_subject = subject,
@@ -36,7 +26,9 @@ def syncMailsWhenUpdateContact():
 def syncMailsWhenUpdateCompany():
     print("sync in progress")
     sender, recipient, subject, message = getMail()
-    contact = Contact.objects.filter(Q(contact_email=sender) |Q(contact_email=recipient)).values('id') # get contact id if sender or recipient in Contact
+    contact = Contact.objects.filter(
+        Q(contact_email=sender) | Q(contact_email=recipient)
+        ).values('id') # get contact id if sender or recipient in Contact
     Email.objects.create(
         contact_id = contact, #todo: ValueError: Cannot assign "<QuerySet [{'id': 8}]>": "Email.contact_id" must be a "Contact" instance.
         from_email = sender,
@@ -46,7 +38,6 @@ def syncMailsWhenUpdateCompany():
         )
     print("sync completed")
     return redirect('/companies')
-
 
 def deleteEmail(request, id):
     email = Email.objects.get(pk = id)
@@ -72,16 +63,14 @@ def filterEmailFromContact(request,id):
     return render(request, 'emails/index.html', context)
 
 def filterEmailFromCompany(request,id):
-    print("coucou")
-    print(request)
-    print(id)
-    email = Email.objects.filter(field__in=Contact.object.filter(contact_company = id)) #todo : corriger cette formule
-    print("------")
-    print(email)
+    email = Email.objects.filter(
+        field__in=Contact.object.filter(
+            contact_company = id
+            )
+        )
     form = EmailForm(request.POST)
     context = {
         'emails' : email,
         'form' : form,
     }
-    print(context)
     return render(request, 'emails/index.html', context)

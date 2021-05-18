@@ -46,29 +46,7 @@
                             <div class="card-body text-info">
                                 <!-- email display -->
                                 {% for email in emails %}
-                                    <div class="card mt-2 shadow-sm">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-10">
-                                                    <div class="card-body text-info">
-                                                        <div>from : {{ email.from_email }}</div>
-                                                        <div>to : {{ email.to_email }}</div>
-                                                        <div>subject : {{ email.email_subject }}</div>
-                                                        <div>message : {{ email.email_message }}</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1 close">
-                                                    <!-- delete button -->
-                                                    <div class="col-1">
-                                                        <a href="{% url 'emails:Delete_Email' email.id %}">
-                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                            </button>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>        
+                                    {% include 'emails/emaildisplay.html' %}
                                 {% endfor %}
                             </div>
                         </div>

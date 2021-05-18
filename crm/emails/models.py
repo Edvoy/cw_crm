@@ -1,5 +1,4 @@
 from django.db import models
-
 from contacts.models import Contact
 
 class Email(models.Model):

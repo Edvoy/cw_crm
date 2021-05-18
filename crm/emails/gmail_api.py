@@ -52,7 +52,8 @@ def getCredentials():
 
 def unpack_payload(txt):
     """
-    use to catch emails fields in payload2fields function for mimeType "text/plain" and "text/html"
+    use to catch emails fields in payload2fields function
+    for mimeType "text/plain" and "text/html"
     """
     recipient, sender, subject = '','',''
     for n in range(len(txt['payload'].get('headers'))):
@@ -128,7 +129,6 @@ def payload2fields(txt):
     return sender, recipient, subject, data
 
 def cleanFieldsEmails(sender, recipient, subject, data):
-
     decode = str(base64.urlsafe_b64decode(data))
     message = decode.strip("b'").split("\\r\\n")
 
@@ -143,13 +143,10 @@ def cleanFieldsEmails(sender, recipient, subject, data):
     return sender, recipient, subject, message
 
 def getMail():
-    """
-    Shows basic usage of the Gmail API. Ready2Use from google. see link at the top
-    """
     creds = getCredentials()
     service = build('gmail', 'v1', credentials=creds)
 
-    # catch email from Gmail, with maxResults parameter and  q = 'subject:*filer*'
+    # catch email from Gmail, with maxResults parameter and  q = 'subject:*filter*' if necessary
     result = service.users().messages().list(maxResults=100, userId='me').execute()
     messages = result.get('messages')
 
@@ -158,7 +155,6 @@ def getMail():
                 txt = service.users().messages().get(userId='me', id=msg['id']).execute()
                 sender, recipient, subject, data = payload2fields(txt)
                 sender, recipient, subject, message = cleanFieldsEmails(sender, recipient, subject, data)
-
                 
     else :
         sender, recipient, subject, message = "No emails!"," "," "," "
