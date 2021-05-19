@@ -87,16 +87,12 @@ def payload2fields(txt):
     elif mimeType == "text/html":
         try:
             recipient, sender, subject = unpack_payload(txt)
-            # recipient = txt['payload']['headers'][0]['value']
-            # sender = txt['payload']['headers'][1]['value']
-            # subject = txt['payload']['headers'][20]['value']
             data = txt['payload']['body']['data']
 
         except IndexError:
             print("Error")
             exit()
 
-    #todo : gérer le multipart alternative et mixed
     elif mimeType == 'multipart/alternative':
         try:
             for n in range(len(txt['payload']['headers'])):
@@ -171,7 +167,7 @@ def getMail():
     service = build('gmail', 'v1', credentials=creds)
 
     
-    # catch email from Gmail, with maxResults parameter and  q = 'subject:*filter*' if necessary
+    #Catch email from Gmail, with maxResults parameter and  q = 'subject:*filter*' if necessary
     result = service.users().messages().list(maxResults=100, userId='me').execute()
     messages = result.get('messages')
 

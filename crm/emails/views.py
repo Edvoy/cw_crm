@@ -95,7 +95,6 @@ def filterEmailFromCompany(request,id):
             contact_company = id
             )
         )
-
     form = EmailForm(request.POST)
     context = {
         'emails' : email,
