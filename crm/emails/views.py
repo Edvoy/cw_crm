@@ -14,11 +14,12 @@ def syncMailsWhenUpdateContact():
     """
     print("sync in progress")
     sender, recipient, subject, message = getMail()
-    contact = Contact.objects.filter(
+    filter = Contact.objects.filter(
         Q(contact_email=sender) | Q(contact_email=recipient)
-        ).values('id') # get contact id if sender or recipient in Contact
+        ).values('id')
+    contact = Contact.objects.get(id=str(filter).strip('<QuerySet [{\'id\': ').strip('}]>'))
     Email.objects.create(
-        contact_id = contact, #todo: ValueError: Cannot assign "<QuerySet [{'id': 8}]>": "Email.contact_id" must be a "Contact" instance.
+        contact_id = contact,
         from_email = sender,
         to_email = recipient,
         email_subject = subject,
@@ -34,14 +35,13 @@ def syncMailsWhenUpdateCompany():
     """
     print("sync in progress")
     sender, recipient, subject, message = getMail()
-    contact = Contact.objects.filter( #remplacer filter par get 
+    filter = Contact.objects.filter(
         Q(contact_email=sender) | Q(contact_email=recipient)
-        ).values('id') # get contact id if sender or recipient in Contact
-    print(contact)
-    print("-----------")
+        ).values('id')
+    contact = Contact.objects.get(id=str(filter).strip('<QuerySet [{\'id\': ').strip('}]>'))
     Email.objects.create(
         from_email = sender, 
-        contact_id = contact, #todo: ValueError: Cannot assign "<QuerySet [{'id': 8}]>": "Email.contact_id" must be a "Contact" instance.
+        contact_id = contact,
         
         to_email = recipient,
         email_subject = subject,
@@ -91,10 +91,11 @@ def filterEmailFromCompany(request,id):
     with this company contact and user
     """
     email = Email.objects.filter(
-        field__in=Contact.objects.filter(  #todo: FieldError at /filterCompanyEmails/1 /// Cannot resolve keyword 'field' into field.
+        contact_id__in=Contact.objects.filter(
             contact_company = id
             )
         )
+
     form = EmailForm(request.POST)
     context = {
         'emails' : email,

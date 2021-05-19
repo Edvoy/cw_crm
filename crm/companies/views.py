@@ -42,7 +42,7 @@ def updateCompany(request, id):
         form = CompanyForm(request.POST, instance = company)
         if form.is_valid():
             form.save()
-            #syncMailsWhenUpdateCompany()
+            syncMailsWhenUpdateCompany()
             return redirect('/companies')
     context = {
         'updateForm' : updateForm,
