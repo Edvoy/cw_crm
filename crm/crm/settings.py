@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'companies',
     'contacts',
     'emails',
-    'phonenumber_field',
     'django_crontab',
 ]
 

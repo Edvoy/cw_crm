@@ -3,8 +3,8 @@ cachetools==4.2.2
 certifi==2020.12.5
 chardet==4.0.0
 Django==3.2.2
+django-common-helpers==0.9.2
 django-crontab==0.7.1
-django-phonenumber-field==5.1.0
 google-api-core==1.26.3
 google-api-python-client==2.4.0
 google-auth==1.30.0
@@ -15,7 +15,6 @@ httplib2==0.19.1
 idna==2.10
 oauthlib==3.1.0
 packaging==20.9
-phonenumbers==8.12.22
 protobuf==3.17.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8

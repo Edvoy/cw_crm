@@ -1,4 +1,4 @@
-<form action="{% url 'contacts:Add_Contact' %}" method="post">
+<form action="{% url 'contacts:Update_Contact' key %}" method="post">
     {% csrf_token %}
     <div class="input-group mb-2 shadow bg-white">
         {{ updateForm.contact_first_name }}

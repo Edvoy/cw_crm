@@ -46,7 +46,6 @@ class CompanyForm(ModelForm):
                              }
                              ),
                              )
-    #todo: voir la gestion des erreurs dans contacts.forms pour comprendre
     company_phone = forms.CharField(required = False,
                         max_length = 100,
                          widget = forms.TextInput(

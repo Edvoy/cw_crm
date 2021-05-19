@@ -96,21 +96,6 @@ def payload2fields(txt):
             exit()
 
     #todo : gérer le multipart alternative et mixed
-    # elif mimeType == "multipart/alternative":
-    #     try:
-    #         data = txt['payload'].get('parts')[0]['body']['data']
-    #         recipient, sender, subject = unpack_payload(txt)
-    #     except IndexError:
-    #         print("Error, list index out of range in get('parts')")
-    #         exit()
-
-
-    # elif mimeType == "multipart/mixed":
-    #     recipient = txt['payload']['headers'][0]['value']
-    #     sender = txt['payload']['headers'][1]['value']
-    #     subject = txt['payload']['headers'][13]['value']
-    #     data = 
-
     else:
         print(">>> bad mimeType, need text/plain, text/html")        
 
@@ -129,6 +114,9 @@ def payload2fields(txt):
     return sender, recipient, subject, data
 
 def cleanFieldsEmails(sender, recipient, subject, data):
+    """
+    clean emails field function
+    """
     decode = str(base64.urlsafe_b64decode(data))
     message = decode.strip("b'").split("\\r\\n")
 
@@ -143,6 +131,9 @@ def cleanFieldsEmails(sender, recipient, subject, data):
     return sender, recipient, subject, message
 
 def getMail():
+    """
+    setup all previous function to get all emails in user mailbox
+    """
     creds = getCredentials()
     service = build('gmail', 'v1', credentials=creds)
 

@@ -1,7 +1,14 @@
+"""
+setup for cron service
+"""
+
 from .gmail_api import getMail
 from .models import Email
 
 def syncMails():
+    """
+    sync email function to synchronize email (details on crm.settings.CRONJOBS) 
+    """
     print("sync in progress")
     sender, recipient, subject, message = getMail()
     Email.objects.create(
