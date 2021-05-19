@@ -86,9 +86,10 @@ def payload2fields(txt):
 
     elif mimeType == "text/html":
         try:
-            recipient = txt['payload']['headers'][0]['value']
-            sender = txt['payload']['headers'][1]['value']
-            subject = txt['payload']['headers'][20]['value']
+            recipient, sender, subject = unpack_payload(txt)
+            # recipient = txt['payload']['headers'][0]['value']
+            # sender = txt['payload']['headers'][1]['value']
+            # subject = txt['payload']['headers'][20]['value']
             data = txt['payload']['body']['data']
 
         except IndexError:
@@ -113,9 +114,23 @@ def payload2fields(txt):
         except IndexError:
             print("Error")
             exit()
+    
+    elif mimeType == 'multipart/mixed':
+        try:
+            for n in range(len(txt['payload']['headers'])):
+                if txt['payload']['headers'][n]['name']== 'From':
+                    sender = txt['payload']['headers'][n]['value']
+                elif txt['payload']['headers'][n]['name']== 'Subject':
+                    subject = txt['payload']['headers'][n]['value']
+                elif txt['payload']['headers'][n]['name']== 'To':
+                    recipient = txt['payload']['headers'][n]['value']
+            data = ''
+        except IndexError:
+            print("Error")
+            exit()
 
     else:
-        print(">>> bad mimeType : need text/plain, text/html, multipart/alternative")
+        print(">>> bad mimeType : need text/plain, text/html, multipart/alternative or multipart/mixed")
 
     #email fields searching
     for n in range(len(txt['payload'].get('headers'))):
@@ -155,12 +170,16 @@ def getMail():
     creds = getCredentials()
     service = build('gmail', 'v1', credentials=creds)
 
+    
     # catch email from Gmail, with maxResults parameter and  q = 'subject:*filter*' if necessary
     result = service.users().messages().list(maxResults=100, userId='me').execute()
     messages = result.get('messages')
 
     if messages != None : 
+        count = 0
         for msg in messages:
+                count += 1
+                print(count)
                 txt = service.users().messages().get(userId='me', id=msg['id']).execute()
                 sender, recipient, subject, data = payload2fields(txt)
                 sender, recipient, subject, message = cleanFieldsEmails(sender, recipient, subject, data)
