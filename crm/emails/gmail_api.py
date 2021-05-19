@@ -96,8 +96,26 @@ def payload2fields(txt):
             exit()
 
     #todo : gérer le multipart alternative et mixed
+    elif mimeType == 'multipart/alternative':
+        try:
+            for n in range(len(txt['payload']['headers'])):
+                if txt['payload']['headers'][n]['name']== 'From':
+                    sender = txt['payload']['headers'][n]['value']
+
+                elif txt['payload']['headers'][n]['name']== 'Subject':
+                    subject = txt['payload']['headers'][n]['value']
+
+                elif txt['payload']['headers'][n]['name']== 'To':
+                    recipient = txt['payload']['headers'][n]['value']
+
+                data =txt['payload']['parts'][0]['body']['data']
+
+        except IndexError:
+            print("Error")
+            exit()
+
     else:
-        print(">>> bad mimeType, need text/plain, text/html")        
+        print(">>> bad mimeType : need text/plain, text/html, multipart/alternative")
 
     #email fields searching
     for n in range(len(txt['payload'].get('headers'))):

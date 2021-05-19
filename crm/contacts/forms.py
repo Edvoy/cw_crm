@@ -37,7 +37,7 @@ class ContactForm(ModelForm):
                              }
                         )
                     )
-    #todo: améliorer la gestion des erreurs
+
     contact_phone = forms.CharField(required = True,
                         max_length = 45,
                         widget = forms.TextInput(
@@ -47,6 +47,7 @@ class ContactForm(ModelForm):
                              }
                         )
                      )
+    
     contact_notes = forms.CharField(required = False,
                         max_length = 550,
                          widget = forms.TextInput(
