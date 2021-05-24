@@ -3,6 +3,7 @@ from contacts.models import Contact
 
 class Email(models.Model):
     contact_id = models.ForeignKey(Contact, on_delete=models.CASCADE,blank=True)
+    email_id = models.CharField(max_length=200)
     from_email = models.EmailField(max_length=200)
     to_email =models.EmailField(max_length=200)
     email_subject = models.CharField(max_length=200)

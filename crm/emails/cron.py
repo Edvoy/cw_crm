@@ -10,7 +10,7 @@ def syncMails():
     sync email function to synchronize email (details on crm.settings.CRONJOBS) 
     """
     print("sync in progress")
-    sender, recipient, subject, message = getMail()
+    email_id, sender, recipient, subject, message = getMail()
     Email.objects.create(
         from_email = sender,
         to_email = recipient,

@@ -43,7 +43,7 @@ def updateContact(request, id):
         form = ContactForm(request.POST, instance = contact)
         if form.is_valid():
             form.save()
-            #syncMailsWhenUpdateContact()
+            syncMailsWhenUpdateContact()
             return redirect('/contacts')
     context = {
         'updateForm' : updateForm,
