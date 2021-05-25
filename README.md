@@ -1,7 +1,7 @@
 <p align="center">
 
 
-  <img src="https://imgshare.io/images/2021/05/25/moustache.png" alt="Django CRM Documentation" width="226">
+  <img src="https://imgshare.io/images/2021/05/25/moustache-01.png" alt="Django CRM Documentation" width="226">
 </p>
 
 <p align="center">Django CRM helps you to create best relations index</p>
