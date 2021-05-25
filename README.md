@@ -1,16 +1,24 @@
-# Django CRM
+<p align="center">
+  <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Django CRM Documentation" width="226">
+</p>
 
-![alt text](https://imgshare.io/images/2021/05/18/crm.png)
+<p align="center">Django CRM helps you to create best relations index</p>
+
+<p align="center"><img src="https://raw.githubusercontent.com/lord/img/master/screenshot-slate.png" width=700 alt="Screenshot of Django CRM"></p>
+
+<p align="center"><em>The example above was created with Django CRM.</em></p>
+
+## Index
++ [Introduction](https://github.com/dandasma/Stockoverflow#introduction)
++ [Features](https://github.com/dandasma/Stockoverflow#Usage)
++ [Getting started with Django CRM](https://github.com/dandasma/Stockoverflow#Architecture) 
++ [Questions? Need Help? Found a bug?](https://github.com/dandasma/Stockoverflow#Config)
 
 ## Introduction
-This my second django project. It was create after a proposal and challenging offer that a friend make to me.
 
-The main idea was very simple : learn to become an autonomous junior developer.
+## Features
 
-## Usage
+## Getting Started with Django CRM
 
-```
-gitclone https://github.com/Edvoy/cw_crm.git
-docker-compose up
 
-```
+## Questions? Need Help? Found a bug?
