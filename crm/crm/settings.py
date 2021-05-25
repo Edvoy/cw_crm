@@ -130,5 +130,5 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRONJOBS = [
-    ('* * * * *', 'emails.cron.syncMails')
+    ('*/1 * * * *', 'emails.cron.syncMails')
 ]
