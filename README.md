@@ -34,18 +34,18 @@ You're going to need:
  - **Docker** — [doc](https://docs.docker.com/get-docker/)
  - **Git** — [doc](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ### Getting Set Up
-1. Fork this repository on GitHub by clicking on the button as shown in the image 
+1. **Fork this repository on GitHub by clicking on the button as shown in the image**
 <p align="center"><img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width=700 ></p>
 
-2. Clone *your forked repository* (not our original one) to your hard drive:
-- cmd + space on your keyboard to open *spotlight*
-- Search Terminal and launch it
-- copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`
-3. Open Docker on your computer : 
-- cmd + space on your keyboard to open *spotlight*
-- Search Docker and launch it (the application will launch in the background)
-4. Back to your Terminal, copy-paste `cd cw_crm`
-5. And finnaly, copy-paste`docker compose up`
+2. **Clone *your forked repository* (not our original one) to your hard drive:**
+    - cmd + space on your keyboard to open *spotlight*
+    - Search Terminal and launch it
+    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`
+3. **Open Docker on your computer :**
+    - cmd + space on your keyboard to open *spotlight*
+    - Search Docker and launch it (the application will launch in the background)
+4. **Back to your Terminal, copy-paste `cd cw_crm`**
+5. **And finnaly, copy-paste`docker compose up`**
 
 You will be able to access your site at http://127.0.0.1:8000 until you stop the running container process in docker app.
 
