@@ -33,18 +33,18 @@ You're going to need:
  - **Python, 3.9.5** [doc](https://www.python.org)
  - **Docker** — [doc](https://docs.docker.com/get-docker/)
  - **Git** — [doc](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-### Getting Set Up
+### Getting Set Up On Macintosh
 1. **Fork this repository on GitHub :**
     - clicking on the button as shown in the image, at the top right of the screen, under your profile picture
 <p align="center"><img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width=700></p>
 
 2. **Clone *your forked repository* (not our original one) to your hard drive:**
     - cmd + space on your keyboard to open *spotlight*
-    - Search *Terminal* and launch it
+    - search *Terminal* and launch it
     - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`
 3. **Open Docker on your computer :**
     - cmd + space on your keyboard to open *spotlight*
-    - Search *Docker* and launch it (the application will launch in the background)
+    - search *Docker* and launch it (the application will launch in the background)
 4. **Back to your Terminal, copy-paste `cd cw_crm`**
 5. **And finnaly, copy-paste`docker compose up`**
 
@@ -54,3 +54,10 @@ You will be able to access your site at http://127.0.0.1:8000 until you stop the
 If you've got questions about setup, deploying, special feature implementation in your fork, or just want to chat with the developer, please feel free to [contact me on linkedin](https://www.linkedin.com/in/edouardvoyer/)!
 
 Found a bug with upstream *cwCRM*? Go ahead and [submit an issue](https://github.com/Edvoy/cw_crm/issues).
+
+## Special Thanks
+- [Django project](https://github.com/django)
+- [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Google developers](https://developers.google.com/gmail/api)
+- [Flaticon](https://www.flaticon.com)
