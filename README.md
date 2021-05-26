@@ -34,6 +34,8 @@ You're going to need:
  - **Python, 3.9.5** [doc](https://www.python.org)
  - **Docker** — [doc](https://docs.docker.com/get-docker/)
  - **Git** — [doc](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+ - **credentials.json**- that I must provide you. Once done, you must place it in the "crm" folder where you will find "manage.py"
+ 
 ### Getting Set Up On Macintosh
 1. **Fork this repository on GitHub :**
     - clicking on the button as shown in the image, at the top right of the screen, under your profile picture
