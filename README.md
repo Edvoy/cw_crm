@@ -35,13 +35,13 @@ You're going to need:
  - **Git** — [doc](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ### Getting Set Up
 1. Fork this repository on GitHub by clicking on the button as shown in the image 
-<img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width=700 >
+<p align="center"><img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width=700 ></p>
 
-2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/slate.git`
+2. Clone *your forked repository* (not our original one) to your hard drive. Open your Terminal and copy-paste the following command `git clone https://github.com/YOURUSERNAME/slate.git`
 3. Launch Docker on your computer
-4. `cd cw_crm`
-5. `docker compose up`
-and you will be able to access your site at http://127.0.0.1:8000 until you stop the running container process in docker app.
+4. In your Terminal, copy-paste `cd cw_crm`
+5. And finnaly, copy-paste`docker compose up`
+You will be able to access your site at http://127.0.0.1:8000 until you stop the running container process in docker app.
 
 ## Questions? Need Help? Found a bug?
 If you've got questions about setup, deploying, special feature implementation in your fork, or just want to chat with the developer, please feel free to [contact me on linkedin](https://www.linkedin.com/in/edouardvoyer/)!
