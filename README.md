@@ -11,8 +11,8 @@
 ## Index
 + [Introduction](https://github.com/Edvoy/cw_crm#introduction)
 + [Features](https://github.com/Edvoy/cw_crm#features)
-+ [Getting Set Up On Macintosh](https://github.com/Edvoy/cw_crm#getting-started-on-macintosh)
-+ [Getting Set Up On Windows](https://github.com/Edvoy/cw_crm#getting-started-on-windows) 
++ [Getting Set Up On Macintosh](https://github.com/Edvoy/cw_crm#getting-set-up-on-macintosh)
++ [Getting Set Up On Windows](https://github.com/Edvoy/cw_crm#getting-set-up-on-windows) 
 + [Questions? Need Help? Found a bug?](https://github.com/Edvoy/cw_crm#questions-need-help-found-a-bug)
 
 ## Introduction
