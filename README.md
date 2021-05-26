@@ -34,7 +34,9 @@ You're going to need:
  - **Docker** — [doc](https://docs.docker.com/get-docker/)
  - **Git** — [doc](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ### Getting Set Up
-1. Fork this repository on GitHub.
+1. Fork this repository on GitHub by clicking on the button as shown in the image 
+<img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width=700 >
+
 2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/slate.git`
 3. Launch Docker on your computer
 4. `cd cw_crm`
@@ -44,4 +46,4 @@ and you will be able to access your site at http://127.0.0.1:8000 until you stop
 ## Questions? Need Help? Found a bug?
 If you've got questions about setup, deploying, special feature implementation in your fork, or just want to chat with the developer, please feel free to [contact me on linkedin](https://www.linkedin.com/in/edouardvoyer/)!
 
-Found a bug with upstream Django CRM? Go ahead and [submit an issue](https://github.com/Edvoy/cw_crm/issues).
+Found a bug with upstream cwCRM? Go ahead and [submit an issue](https://github.com/Edvoy/cw_crm/issues).
