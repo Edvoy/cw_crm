@@ -48,7 +48,7 @@ You're going to need:
 3. Open cw_crm folder:
     - cmd + space on your keyboard to open *spotlight*
     - search *cw_crm* folder and open it
-4. Place "credentials.json" in the "crm" folder (in cw_crm folder) where you will find "manage.py"
+4. Place "credentials.json" in the "crm" folder
 5. **Open Docker on your computer :**
     - cmd + space on your keyboard to open *spotlight*
     - search *Docker* and launch it (the application will launch in the background)
@@ -69,7 +69,7 @@ You will be able to access your site at http://127.0.0.1:8000 until you stop the
 3. Open cw_crm folder:
     - in the search bar located on the left-hand side of your taskbar
     - search *cw_crm* folder and open it
-4. Place "credentials.json" in the "crm" folder (in cw_crm folder) where you will find "manage.py"
+4. Place "credentials.json" in the "crm" folder
 5. **Open Docker on your computer :**
     - in the search bar located on the left-hand side of your taskbar
     - search *Docker* and launch it (the application will launch in the background)

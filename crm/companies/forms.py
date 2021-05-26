@@ -39,14 +39,14 @@ class CompanyForm(ModelForm):
                              }
                          ),
                      )
-    company_email = forms.EmailField(required=True,widget = forms.EmailInput(
+    company_email = forms.EmailField(required=False,widget = forms.EmailInput(
                              attrs = {
                                  'class' : 'form-control',
                                  'placeholder' : 'email', 
                              }
                              ),
                              )
-    company_phone = forms.CharField(required = False,
+    company_phone = forms.CharField(required=False,
                         max_length = 100,
                          widget = forms.TextInput(
                              attrs = {

@@ -30,7 +30,7 @@ def deleteCompany(request, id):
     """
     company = Company.objects.get(pk = id)
     company.delete()
-    return redirect('companies/index.html')
+    return redirect('/companies')
 
 def updateCompany(request, id):
     """
