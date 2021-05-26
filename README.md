@@ -1,6 +1,4 @@
 <p align="center">
-
-
   <img src="https://imgshare.io/images/2021/05/25/moustache-01.png" alt="Django CRM Documentation" width="226">
 </p>
 
@@ -17,12 +15,14 @@
 + [Questions? Need Help? Found a bug?](https://github.com/Edvoy/cw_crm#questions-need-help-found-a-bug)
 
 ## Introduction
-
+This project is one of my first steps as a developer. It is the application of recently acquired knowledge on Django and Python. It was done in a week and a half and will maybe be used as a basis for a future project.
 ## Features
-* **erezrzn** — W
-* **erezrzn** — W
-* **erezrzn** — W
-* **erezrzn** — W
+
+All the basic features expected for the foundation of a CRM :
+
+* **Companies profil** — manage your address book : create, read, delete and update with automatic mail synchronization. All contact per company are easily accessible.
+* **Companies profil** — manage your address book : create, read, delete and update with automatic mail synchronization.
+* **Communication archive** — Filter your emails by contact or company.
 
 ## Getting Started with Django CRM
 ### Prerequisites
