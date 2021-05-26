@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://imgshare.io/images/2021/05/25/moustache-01.png" alt="Django CRM Documentation" width="226">
+  <img src="https://imgshare.io/images/2021/05/26/moustache-01.png" alt="cwCRM Documentation" width="226">
 </p>
 
-<p align="center">Django CRM helps you to create best relations index</p>
+<p align="center">cwCRM helps you to create best relations index</p>
 
 <p align="center"><img src="https://imgshare.io/images/2021/05/25/Capture-decran-2021-05-25-a-21.30.57.png" width=700 alt="Screenshot of Django CRM"></p>
 
-<p align="center"><em>The example above was created with Django CRM.</em></p>
+<p align="center"><em>The example above was created with cwCRM.</em></p>
 
 ## Index
 + [Introduction](https://github.com/Edvoy/cw_crm#introduction)
@@ -29,12 +29,17 @@ All the basic features expected for the foundation of a CRM :
 
 You're going to need:
 
- - **Linux or macOS** — Windows may work, but is unsupported.
- - **Python, 3.9.5**
- - **Docker** — 
- - **Git** -
+ - **Linux, macOS or Windows**
+ - **Python, 3.9.5** [doc](https://www.python.org)
+ - **Docker** — [doc](https://docs.docker.com/get-docker/)
+ - **Git** — [doc](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ### Getting Set Up
-
+1. Fork this repository on GitHub.
+2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/slate.git`
+3. Launch Docker on your computer
+4. `cd cw_crm`
+5. `docker compose up`
+and you will be able to access your site at http://127.0.0.1:8000 until you stop the running container process in docker app.
 
 ## Questions? Need Help? Found a bug?
 If you've got questions about setup, deploying, special feature implementation in your fork, or just want to chat with the developer, please feel free to [contact me on linkedin](https://www.linkedin.com/in/edouardvoyer/)!
