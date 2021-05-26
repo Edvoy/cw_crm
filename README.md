@@ -11,7 +11,7 @@
 ## Index
 + [Introduction](https://github.com/Edvoy/cw_crm#introduction)
 + [Features](https://github.com/Edvoy/cw_crm#features)
-+ [Getting started with Django CRM](https://github.com/Edvoy/cw_crm#getting-started-with-django-crm) 
++ [Getting started with cwCRM](https://github.com/Edvoy/cw_crm#getting-started-with-django-crm) 
 + [Questions? Need Help? Found a bug?](https://github.com/Edvoy/cw_crm#questions-need-help-found-a-bug)
 
 ## Introduction
@@ -24,7 +24,7 @@ All the basic features expected for the foundation of a CRM :
 * **Companies profil** — manage your address book : create, read, delete and update with automatic mail synchronization.
 * **Communication archive** — Filter your emails by contact or company.
 
-## Getting Started with Django CRM
+## Getting Started with cwCRM
 ### Prerequisites
 
 You're going to need:
@@ -34,16 +34,17 @@ You're going to need:
  - **Docker** — [doc](https://docs.docker.com/get-docker/)
  - **Git** — [doc](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 ### Getting Set Up
-1. **Fork this repository on GitHub by clicking on the button as shown in the image**
-<p align="center"><img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width=700 ></p>
+1. **Fork this repository on GitHub :**
+    - clicking on the button as shown in the image, at the top right of the screen, under your profile picture
+<p align="center"><img src="https://github-images.s3.amazonaws.com/help/bootcamp/Bootcamp-Fork.png" width=700></p>
 
 2. **Clone *your forked repository* (not our original one) to your hard drive:**
     - cmd + space on your keyboard to open *spotlight*
-    - Search Terminal and launch it
+    - Search *Terminal* and launch it
     - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`
 3. **Open Docker on your computer :**
     - cmd + space on your keyboard to open *spotlight*
-    - Search Docker and launch it (the application will launch in the background)
+    - Search *Docker* and launch it (the application will launch in the background)
 4. **Back to your Terminal, copy-paste `cd cw_crm`**
 5. **And finnaly, copy-paste`docker compose up`**
 
@@ -52,4 +53,4 @@ You will be able to access your site at http://127.0.0.1:8000 until you stop the
 ## Questions? Need Help? Found a bug?
 If you've got questions about setup, deploying, special feature implementation in your fork, or just want to chat with the developer, please feel free to [contact me on linkedin](https://www.linkedin.com/in/edouardvoyer/)!
 
-Found a bug with upstream cwCRM? Go ahead and [submit an issue](https://github.com/Edvoy/cw_crm/issues).
+Found a bug with upstream *cwCRM*? Go ahead and [submit an issue](https://github.com/Edvoy/cw_crm/issues).
