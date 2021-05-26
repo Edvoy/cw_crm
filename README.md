@@ -44,12 +44,16 @@ You're going to need:
 2. **Clone *your forked repository* (not our original one) to your hard drive:**
     - cmd + space on your keyboard to open *spotlight*
     - search *Terminal* and launch it
-    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`
-3. **Open Docker on your computer :**
+    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`(don't forget to change YOURUSERNAME in the following command by your github username)
+3. Open cw_crm folder:
+    - cmd + space on your keyboard to open *spotlight*
+    - search *cw_crm* folder and open it
+4. Place "credentials.json" in the "crm" folder (in cw_crm folder) where you will find "manage.py"
+5. **Open Docker on your computer :**
     - cmd + space on your keyboard to open *spotlight*
     - search *Docker* and launch it (the application will launch in the background)
-4. **Back to your Terminal, copy-paste `cd cw_crm`**
-5. **And finnaly, copy-paste`docker compose up`**
+6. **Back to your Terminal, copy-paste `cd cw_crm`**
+7. **And finnaly, copy-paste`docker compose up`**
 
 You will be able to access your site at http://127.0.0.1:8000 until you stop the running container process in docker app.
 
@@ -61,12 +65,16 @@ You will be able to access your site at http://127.0.0.1:8000 until you stop the
 2. **Clone *your forked repository* (not our original one) to your hard drive:**
     - in the search bar located on the left-hand side of your taskbar
     - search *Command Prompt* and launch it
-    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`
-3. **Open Docker on your computer :**
+    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`(don't forget to change YOURUSERNAME in the following command by your github username)
+3. Open cw_crm folder:
+    - in the search bar located on the left-hand side of your taskbar
+    - search *cw_crm* folder and open it
+4. Place "credentials.json" in the "crm" folder (in cw_crm folder) where you will find "manage.py"
+5. **Open Docker on your computer :**
     - in the search bar located on the left-hand side of your taskbar
     - search *Docker* and launch it (the application will launch in the background)
-4. **Back to your Command Prompt, copy-paste `cd cw_crm`**
-5. **And finnaly, copy-paste`docker compose up`**
+6. **Back to your Command Prompt, copy-paste `cd cw_crm`**
+7. **And finnaly, copy-paste`docker compose up`**
 
 You will be able to access your site at http://127.0.0.1:8000 until you stop the running container process in docker app.
 ## Questions? Need Help? Found a bug?
