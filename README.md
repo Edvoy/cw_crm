@@ -44,7 +44,7 @@ You're going to need:
 2. **Clone *your forked repository* (not our original one) to your hard drive:**
     - cmd + space on your keyboard to open *spotlight*
     - search *Terminal* and launch it
-    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`(don't forget to change YOURUSERNAME in the following command by your github username)
+    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`(don't forget to change YOURUSERNAME in the previous command by your github username)
 3. Open cw_crm folder:
     - cmd + space on your keyboard to open *spotlight*
     - search *cw_crm* folder and open it
@@ -65,7 +65,8 @@ You will be able to access your site at http://127.0.0.1:8000 until you stop the
 2. **Clone *your forked repository* (not our original one) to your hard drive:**
     - in the search bar located on the left-hand side of your taskbar
     - search *Command Prompt* and launch it
-    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git`(don't forget to change YOURUSERNAME in the following command by your github username)
+    - copy-paste the following command `git clone https://github.com/YOURUSERNAME/cw_crm.git
+    (don't forget to change YOURUSERNAME in the previous command by your github username)
 3. Open cw_crm folder:
     - in the search bar located on the left-hand side of your taskbar
     - search *cw_crm* folder and open it
